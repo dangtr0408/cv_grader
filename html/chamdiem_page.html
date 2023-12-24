@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả chấm điểm của bài thi</title>
+    <link href="{{ url_for('css', path='/chamdiem_page.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Kết quả chấm điểm của bài thi</h1>
+    <p>Số báo danh: {{info_0}}</p>
+    <p>Mã đề: {{info_1}}</p>
+    <p>Số câu trả lời đúng: {{cr_ans}}</p>
+    <p>Điểm: {{score}}</p>
+    <img src="data:image/png;base64,{{image_base64}}" alt="Ảnh bài thi">
+    <button id="answer-button" onclick="showAnswers()">Hiển thị đáp án</button>
+    <div id="answers" style="display: none;">
+    </div>
+    <script>
+    function showAnswers() {
+        var answersDiv = document.getElementById("answers");
+        if (answersDiv.style.display === "none") {
+            answersDiv.style.display = "block";
+            answersDiv.innerHTML = "<p>Câu trả lời đúng: {{ans}}</p>";
+        }
+        else {
+            answersDiv.style.display = "none";
+            answersDiv.innerHTML = "";
+        }
+    }
+    </script>
+
+    <div class="back-button">
+        <a href="/" class="back-link">Tiếp tục chấm thi</a>
+    </div>
+</body>
+</html>

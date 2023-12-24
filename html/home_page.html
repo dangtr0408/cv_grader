@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('css', path='/home_page.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Tải lên ảnh và CSV cho bài thi</h1>
+    <form action="/grade/score" method="post" enctype="multipart/form-data">
+        <label for="image">Chọn ảnh:</label>
+        <input type="file" name="image" accept=".jpg, .jpeg, .png">
+        <br>
+        <label for="user_csv">Chọn file đáp án:</label>
+        <input type="file" name="user_csv" accept=".csv">
+        <br>
+        <br>
+        <button type="submit">Chấm điểm</button>
+        <br>
+        <br>
+        <img src="/temp_img/score_chart.png" alt="Score Chart" style="width: 100%; height: auto;">
+        <br>
+        <br>
+    </form>
+</body>
+</html>
